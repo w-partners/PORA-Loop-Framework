@@ -1,0 +1,3 @@
+[submodule "PORA-Loop-Framework/pora-framework"]
+	path = PORA-Loop-Framework/pora-framework
+	url = https://github.com/w-partners/pora-framework.git
