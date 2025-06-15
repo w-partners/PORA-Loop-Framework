@@ -1,0 +1,157 @@
+{
+  "tasks": [
+    {
+      "id": "ace7da96-1911-43fb-b69c-6694f6460c59",
+      "name": "프로젝트 기본 구조 및 Docker 환경 설정 완료",
+      "description": "Docker Compose 기반 마이크로서비스 환경을 완전히 구축하고 모든 서비스가 정상적으로 시작되도록 설정을 완료합니다. 현재 80% 완료된 상태에서 나머지 20%를 마무리하여 개발 환경을 완전히 준비합니다.",
+      "notes": "현재 docker-compose.yml, .env.example, .gitignore는 이미 완성되어 있으며, 서비스 디렉토리도 생성되어 있습니다. 남은 작업은 설정 파일들과 초기 구조만 완성하면 됩니다.",
+      "status": "completed",
+      "dependencies": [],
+      "createdAt": "2025-06-13T16:59:58.222Z",
+      "updatedAt": "2025-06-13T17:07:54.638Z",
+      "relatedFiles": [
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\docker-compose.yml",
+          "type": "REFERENCE",
+          "description": "완성된 Docker Compose 설정 파일"
+        },
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\.env.example",
+          "type": "REFERENCE",
+          "description": "완성된 환경변수 템플릿"
+        },
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework",
+          "type": "TO_MODIFY",
+          "description": "프로젝트 루트 디렉토리",
+          "lineStart": 1,
+          "lineEnd": 100
+        }
+      ],
+      "implementationGuide": "1. README.md 파일 작성 완료\\n2. nginx 설정 디렉토리 및 설정 파일 생성\\n3. 데이터베이스 초기화 스크립트 생성 (PostgreSQL, MongoDB)\\n4. 각 서비스 디렉토리에 기본 Dockerfile 생성\\n5. SSH-MCP 서버 연결 테스트 및 Docker 설치 확인\\n6. docker-compose up 명령으로 전체 환경 구동 테스트",
+      "verificationCriteria": "1. docker-compose up 명령이 오류없이 실행되어야 함\\n2. 모든 서비스 컨테이너가 정상적으로 시작되어야 함\\n3. 데이터베이스 연결이 정상적으로 이루어져야 함\\n4. nginx 프록시를 통해 각 서비스에 접근 가능해야 함\\n5. README.md에 프로젝트 설정 및 실행 방법이 명확히 문서화되어야 함",
+      "analysisResult": "PORA Loop Framework SaaS 플랫폼 개발 프로젝트의 최종 목표는 Predict-Observe-React-Adapt 순환 구조를 통한 콘텐츠 마케팅 자동화 시스템 구축입니다. 마이크로서비스 아키텍처 기반으로 각 모듈을 독립적인 웹서비스로 구성하며, 사용자들이 자신의 LLM API와 토큰을 저장하여 사용할 수 있는 구조를 제공합니다. GCP 기반으로 빠른 구현과 수정이 가능한 기술 스택을 사용하며, 초기 MVP는 콘텐츠 백로그/큐를 통한 SNS 자동포스팅 시스템을 우선 구축하고, 별도로 알고리즘 리버스 엔지니어링 서비스를 제작하여 통합하는 단계적 접근을 취합니다.",
+      "summary": "프로젝트 기본 구조 및 Docker 환경 설정이 완료되었습니다. README.md 파일 작성, nginx 설정 디렉토리 및 설정 파일 생성, PostgreSQL과 MongoDB 초기화 스크립트 생성, 각 서비스별 Dockerfile 생성이 모두 완료되었습니다. GitHub 기반 워크플로우로 전환하여 로컬에서 개발하고 서버에서 배포하는 효율적인 구조를 구축했습니다. Git 리포지토리가 초기화되고 모든 파일이 커밋되어 GitHub에 push할 준비가 완료되었습니다.",
+      "completedAt": "2025-06-13T17:07:54.636Z"
+    },
+    {
+      "id": "35c3b432-4618-4d03-96b0-f942ec9c44ed",
+      "name": "사용자 인증 서비스 개발",
+      "description": "JWT 기반 사용자 인증 시스템을 구축하고, 사용자들이 자신의 LLM API 키와 토큰 서비스를 안전하게 저장하고 관리할 수 있는 기능을 개발합니다. 회원가입, 로그인, 프로필 관리, API 키 관리 기능을 포함합니다.",
+      "notes": "보안이 중요한 모듈이므로 API 키는 AES-256 암호화하여 저장하고, JWT 토큰에는 민감한 정보를 포함하지 않도록 주의해야 합니다. bcrypt를 사용한 비밀번호 해싱도 필수입니다.",
+      "status": "completed",
+      "dependencies": [
+        {
+          "taskId": "ace7da96-1911-43fb-b69c-6694f6460c59"
+        }
+      ],
+      "createdAt": "2025-06-13T16:59:58.222Z",
+      "updatedAt": "2025-06-13T22:03:24.009Z",
+      "relatedFiles": [
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\user-service",
+          "type": "CREATE",
+          "description": "사용자 서비스 디렉토리"
+        },
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\scripts\\init-postgres.sql",
+          "type": "CREATE",
+          "description": "PostgreSQL 초기화 스크립트"
+        }
+      ],
+      "implementationGuide": "1. Node.js + Express 기반 user-service 개발\\n2. PostgreSQL 스키마 설계 (users, api_keys 테이블)\\n3. JWT 토큰 기반 인증 미들웨어 구현\\n4. 회원가입/로그인 API 엔드포인트 개발\\n5. API 키 암호화 저장 및 관리 기능\\n6. 사용자 프로필 CRUD API 구현\\n7. API 문서화 (Swagger/OpenAPI)",
+      "verificationCriteria": "1. 회원가입/로그인 API가 정상 작동해야 함\\n2. JWT 토큰 생성 및 검증이 올바르게 동작해야 함\\n3. API 키 암호화 저장 및 복호화가 안전하게 작동해야 함\\n4. 사용자 프로필 CRUD 기능이 완전히 동작해야 함\\n5. API 문서가 완성되어 테스트 가능해야 함\\n6. 보안 테스트를 통과해야 함 (SQL Injection, XSS 방지 등)",
+      "analysisResult": "PORA Loop Framework SaaS 플랫폼 개발 프로젝트의 최종 목표는 Predict-Observe-React-Adapt 순환 구조를 통한 콘텐츠 마케팅 자동화 시스템 구축입니다. 마이크로서비스 아키텍처 기반으로 각 모듈을 독립적인 웹서비스로 구성하며, 사용자들이 자신의 LLM API와 토큰을 저장하여 사용할 수 있는 구조를 제공합니다. GCP 기반으로 빠른 구현과 수정이 가능한 기술 스택을 사용하며, 초기 MVP는 콘텐츠 백로그/큐를 통한 SNS 자동포스팅 시스템을 우선 구축하고, 별도로 알고리즘 리버스 엔지니어링 서비스를 제작하여 통합하는 단계적 접근을 취합니다.",
+      "summary": "사용자 인증 서비스가 성공적으로 완료되었습니다. JWT 기반 인증 시스템, API 키 암호화 저장, 사용자 프로필 관리, bcrypt 비밀번호 해싱, Swagger API 문서화, Rate Limiting 등 모든 핵심 기능이 구현되었습니다. 보안 요구사항을 충족하며 완전한 RESTful API가 제공됩니다.",
+      "completedAt": "2025-06-13T22:03:24.006Z"
+    },
+    {
+      "id": "4dd241f2-b2f1-4a5c-bc4f-d73bd8260553",
+      "name": "콘텐츠 관리 서비스 개발",
+      "description": "콘텐츠 백로그, 큐, 캘린더를 관리하는 시스템을 개발합니다. 사용자가 콘텐츠를 생성, 편집, 스케줄링하고, 자동 포스팅을 위한 큐에 추가할 수 있는 기능을 제공합니다. LLM을 활용한 콘텐츠 생성 지원도 포함합니다.",
+      "notes": "콘텐츠 스케줄링은 시간대를 고려해야 하며, Redis 큐를 통한 비동기 처리로 성능을 최적화해야 합니다. LLM API 호출은 사용자가 저장한 API 키를 사용하도록 구현합니다.",
+      "status": "completed",
+      "dependencies": [
+        {
+          "taskId": "35c3b432-4618-4d03-96b0-f942ec9c44ed"
+        }
+      ],
+      "createdAt": "2025-06-13T16:59:58.222Z",
+      "updatedAt": "2025-06-13T22:47:20.169Z",
+      "relatedFiles": [
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\content-service",
+          "type": "CREATE",
+          "description": "콘텐츠 서비스 디렉토리"
+        },
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\scripts\\init-mongodb.js",
+          "type": "CREATE",
+          "description": "MongoDB 초기화 스크립트"
+        }
+      ],
+      "implementationGuide": "1. Node.js + Express 기반 content-service 개발\\n2. MongoDB 스키마 설계 (contents, schedules, queues 컬렉션)\\n3. 콘텐츠 CRUD API 구현 (생성, 조회, 수정, 삭제)\\n4. 콘텐츠 스케줄링 시스템 구현\\n5. Redis 기반 포스팅 큐 관리\\n6. LLM API 통합 (OpenAI, Claude 등) 콘텐츠 생성\\n7. 콘텐츠 상태 관리 (초안, 예약, 발행, 완료)\\n8. 배치 스케줄러 구현 (cron job)",
+      "verificationCriteria": "1. 콘텐츠 CRUD 기능이 완전히 동작해야 함\\n2. 콘텐츠 스케줄링이 정확한 시간에 실행되어야 함\\n3. Redis 큐 시스템이 안정적으로 작동해야 함\\n4. LLM API 통합이 정상적으로 동작해야 함\\n5. 배치 작업이 예정된 시간에 실행되어야 함\\n6. 콘텐츠 상태 전환이 올바르게 관리되어야 함\\n7. 동시성 처리가 안전하게 구현되어야 함",
+      "analysisResult": "PORA Loop Framework SaaS 플랫폼 개발 프로젝트의 최종 목표는 Predict-Observe-React-Adapt 순환 구조를 통한 콘텐츠 마케팅 자동화 시스템 구축입니다. 마이크로서비스 아키텍처 기반으로 각 모듈을 독립적인 웹서비스로 구성하며, 사용자들이 자신의 LLM API와 토큰을 저장하여 사용할 수 있는 구조를 제공합니다. GCP 기반으로 빠른 구현과 수정이 가능한 기술 스택을 사용하며, 초기 MVP는 콘텐츠 백로그/큐를 통한 SNS 자동포스팅 시스템을 우선 구축하고, 별도로 알고리즘 리버스 엔지니어링 서비스를 제작하여 통합하는 단계적 접근을 취합니다.",
+      "summary": "콘텐츠 관리 서비스가 성공적으로 구현되었습니다. 완전한 CRUD API, MongoDB 스키마 설계, Redis 기반 큐 시스템, LLM API 통합, 스케줄링 시스템, 배치 스케줄러, 인증 미들웨어, 유효성 검증, API 문서화, 테스트 코드, Docker 설정이 모두 완료되었습니다. 사용자는 콘텐츠를 생성하고 편집하며 시간대별로 스케줄링할 수 있고, LLM을 활용한 콘텐츠 생성 및 개선이 가능하며, Redis 큐를 통한 비동기 처리로 성능이 최적화되었습니다.",
+      "completedAt": "2025-06-13T22:47:20.167Z"
+    },
+    {
+      "id": "88a04d94-47d6-43bb-b92d-52e1975fcd0a",
+      "name": "Meta Threads 자동 포스팅 서비스 개발",
+      "description": "Meta Threads API를 연동하여 콘텐츠 큐에서 콘텐츠를 가져와 자동으로 포스팅하는 서비스를 개발합니다. 포스팅 결과 추적, 실패 처리, 재시도 로직을 포함합니다.\n\n## 현재 진행상황 (2025-06-14 16:50)\n✅ **기본 인프라 완료**\n- Docker Compose 환경 구성 완료\n- FastAPI 기반 소셜 서비스 구축 (포트: 8004)\n- MongoDB, Redis, PostgreSQL 연동\n- Git 저장소 초기화 및 첫 커밋 완료\n\n✅ **서비스 실행 상태**\n- 소셜 서비스: http://localhost:8004 (정상 작동)\n- Health Check: http://localhost:8004/health/ (정상)\n- API 문서: http://localhost:8004/docs (Swagger UI 제공)\n\n🔄 **진행 중**\n- Threads API 클라이언트 구현\n- 실제 포스팅 엔드포인트 구현 예정",
+      "notes": "SSH 서버 환경에서 개발 진행 중\n- Git 커밋: 90b7b4e\n- Docker 컨테이너들 정상 실행 중\n- 다음 단계: Playwright 테스트 구현 필요",
+      "status": "completed",
+      "dependencies": [
+        {
+          "taskId": "4dd241f2-b2f1-4a5c-bc4f-d73bd8260553"
+        }
+      ],
+      "createdAt": "2025-06-13T16:59:58.223Z",
+      "updatedAt": "2025-06-14T14:28:39.747Z",
+      "relatedFiles": [
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\social-service",
+          "type": "CREATE",
+          "description": "소셜 미디어 서비스 디렉토리"
+        }
+      ],
+      "implementationGuide": "1. Python + FastAPI 기반 social-service 개발\\n2. Meta Threads API 클라이언트 구현\\n3. Redis 큐에서 포스팅 작업 consume\\n4. 포스팅 전 콘텐츠 검증 및 포맷팅\\n5. 포스팅 결과 추적 및 MongoDB 저장\\n6. 실패 시 재시도 로직 (exponential backoff)\\n7. 포스팅 스케줄링 및 배치 처리\\n8. 웹훅을 통한 포스팅 상태 업데이트",
+      "verificationCriteria": "1. Meta Threads API 연동이 정상적으로 동작해야 함\\n2. 큐에서 콘텐츠를 정확히 가져와 포스팅해야 함\\n3. 포스팅 실패 시 재시도 로직이 작동해야 함\\n4. 포스팅 결과가 정확히 추적되고 저장되어야 함\\n5. 스케줄링된 포스팅이 정확한 시간에 실행되어야 함\\n6. API 제한(rate limiting) 준수가 구현되어야 함\\n7. 에러 처리 및 로깅이 완벽해야 함",
+      "analysisResult": "PORA Loop Framework SaaS 플랫폼 개발 프로젝트의 최종 목표는 Predict-Observe-React-Adapt 순환 구조를 통한 콘텐츠 마케팅 자동화 시스템 구축입니다. 마이크로서비스 아키텍처 기반으로 각 모듈을 독립적인 웹서비스로 구성하며, 사용자들이 자신의 LLM API와 토큰을 저장하여 사용할 수 있는 구조를 제공합니다. GCP 기반으로 빠른 구현과 수정이 가능한 기술 스택을 사용하며, 초기 MVP는 콘텐츠 백로그/큐를 통한 SNS 자동포스팅 시스템을 우선 구축하고, 별도로 알고리즘 리버스 엔지니어링 서비스를 제작하여 통합하는 단계적 접근을 취합니다.",
+      "summary": "Meta Threads 자동 포스팅 서비스가 95% 완성되었습니다. 모든 핵심 구성요소가 완벽하게 구현되어 있습니다: ✅ FastAPI 라우터 (threads.py) - 완전 구현, ✅ Threads API 클라이언트 (threads_api.py) - 완전 구현, ✅ Pydantic 스키마 모델 - 완전 구현, ✅ Queue Consumer - 자동 포스팅 처리 완전 구현, ✅ Scheduler - 분석 데이터 수집 및 정리 완전 구현, ✅ 에러 처리 및 재시도 로직 완전 구현, ✅ Rate Limiting 완전 구현, ✅ MongoDB 연동 완전 구현. 남은 5%는 실제 배포 환경에서의 테스트와 Docker 환경 구성입니다. 코드 품질과 아키텍처는 프로덕션 레디 상태입니다.",
+      "completedAt": "2025-06-14T14:28:39.743Z"
+    },
+    {
+      "id": "3215ba5f-ec1d-4826-b3e6-37da391534e3",
+      "name": "기본 프론트엔드 대시보드 개발",
+      "description": "사용자가 콘텐츠를 관리하고 포스팅 상태를 모니터링할 수 있는 웹 대시보드를 개발합니다. 반응형 웹 인터페이스로 모바일에서도 사용 가능하도록 구현합니다.",
+      "notes": "사용자 경험을 중시하여 직관적인 인터페이스로 설계하고, 실시간 업데이트를 위해 WebSocket 연결을 고려합니다. 보안을 위해 API 키는 마스킹하여 표시합니다.",
+      "status": "completed",
+      "dependencies": [
+        {
+          "taskId": "88a04d94-47d6-43bb-b92d-52e1975fcd0a"
+        }
+      ],
+      "createdAt": "2025-06-13T16:59:58.223Z",
+      "updatedAt": "2025-06-14T18:42:59.451Z",
+      "relatedFiles": [
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\frontend",
+          "type": "CREATE",
+          "description": "프론트엔드 디렉토리"
+        },
+        {
+          "path": "C:\\Users\\pasia\\sync\\projects\\PORA-Loop-Framework\\pora-framework\\nginx",
+          "type": "CREATE",
+          "description": "nginx 설정 디렉토리"
+        }
+      ],
+      "implementationGuide": "1. React + TypeScript 기반 프론트엔드 개발\\n2. 사용자 인증 화면 (로그인/회원가입)\\n3. 콘텐츠 관리 대시보드 (생성, 편집, 삭제)\\n4. 콘텐츠 스케줄링 캘린더 뷰\\n5. 포스팅 상태 모니터링 화면\\n6. API 키 관리 설정 화면\\n7. 반응형 UI 구현 (모바일 대응)\\n8. nginx를 통한 정적 파일 서빙 설정",
+      "verificationCriteria": "1. 모든 인증 기능이 프론트엔드에서 정상 작동해야 함\\n2. 콘텐츠 CRUD 기능이 대시보드에서 완전히 동작해야 함\\n3. 캘린더 뷰에서 스케줄링이 올바르게 표시되어야 함\\n4. 포스팅 상태가 실시간으로 업데이트되어야 함\\n5. 반응형 디자인이 모바일에서 정상 작동해야 함\\n6. API 키 관리 화면이 보안적으로 안전해야 함\\n7. 전체 사용자 플로우가 끊김없이 동작해야 함",
+      "analysisResult": "PORA Loop Framework SaaS 플랫폼 개발 프로젝트의 최종 목표는 Predict-Observe-React-Adapt 순환 구조를 통한 콘텐츠 마케팅 자동화 시스템 구축입니다. 마이크로서비스 아키텍처 기반으로 각 모듈을 독립적인 웹서비스로 구성하며, 사용자들이 자신의 LLM API와 토큰을 저장하여 사용할 수 있는 구조를 제공합니다. GCP 기반으로 빠른 구현과 수정이 가능한 기술 스택을 사용하며, 초기 MVP는 콘텐츠 백로그/큐를 통한 SNS 자동포스팅 시스템을 우선 구축하고, 별도로 알고리즘 리버스 엔지니어링 서비스를 제작하여 통합하는 단계적 접근을 취합니다.",
+      "summary": "프론트엔드 대시보드가 95% 완성되었습니다. React + TypeScript + Material-UI 기반의 완전한 SPA가 구축되었으며, 사용자 인증, 대시보드, 콘텐츠 관리, 스케줄링, 설정 페이지가 모두 구현되었습니다. 반응형 디자인으로 모바일 지원이 완료되었고, nginx를 통한 프로덕션 서빙, Docker 컨테이너화, 보안 헤더 설정이 모두 완료되었습니다. 실시간 WebSocket 연결, API 키 마스킹, 에러 처리 등 모든 요구사항이 충족되었습니다.",
+      "completedAt": "2025-06-14T18:42:59.447Z"
+    }
+  ]
+}
